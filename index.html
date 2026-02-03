@@ -18,7 +18,12 @@ input { padding: 10px; font-size: 18px; width: 70%; margin-bottom: 12px; }
 .toggle-btn { width: 80%; cursor: pointer; }
 #homeButton { position: fixed; top: 10px; right: 10px; width: auto; padding: 8px 12px; font-size: 14px; border-radius: 6px; background-color:#4CAF50; cursor: pointer; }
 #turnInfo { margin-top: 12px; font-size: 16px; color:#ccc; }
-pre { text-align:left; white-space: pre-wrap; }
+
+#roleScreen { display:flex; flex-direction: column; justify-content: center; align-items: center; height: 80vh; }
+#roleTitle { font-size: 32px; margin-bottom: 20px; text-align: center; }
+#roleText { font-size: 26px; white-space: pre-wrap; text-align: center; margin-bottom: 30px; }
+
+#starterScreen h2 { font-size: 28px; margin:10px 0; }
 </style>
 </head>
 <body>
@@ -54,7 +59,7 @@ pre { text-align:left; white-space: pre-wrap; }
 <!-- ROLE SCREEN -->
 <div id="roleScreen" class="screen">
     <h2 id="roleTitle"></h2>
-    <pre id="roleText" style="font-size:18px;"></pre>
+    <pre id="roleText"></pre>
     <button id="doneRoleBtn" class="green">DONE (PASS PHONE)</button>
 </div>
 
@@ -70,7 +75,7 @@ pre { text-align:left; white-space: pre-wrap; }
 document.addEventListener("DOMContentLoaded", function() {
 
     // ------------------------
-    // Topics (full from your JSON)
+    // Topics
     // ------------------------
     const defaultTopics = {
       "Places": {"School":"Books","Airport":"Waiting","Hospital":"Bright lights","Beach":"Bare feet","Mall":"Crowds"},
@@ -127,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Fix button for mobile
     document.getElementById('addPlayerBtn').addEventListener('click', addPlayer);
     document.getElementById('playerName').addEventListener('keypress', function(e){
         if(e.key === "Enter"){ addPlayer(); }
@@ -185,12 +189,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const role=roles[currentPlayer];
         let text=role==="IMPOSTER"?"YOU ARE THE IMPOSTER\n":"YOU ARE A CREWMATE\n";
         if(role==="IMPOSTER"){
-            if(showTopic) text+=`Topic: ${currentTopic}\n`;
-            if(showHint) text+=`Hint: ${currentHint}`;
-            if(!showTopic&&!showHint) text+="No extra info. Blend in 😈";
+            if(showTopic) text+=`\nTopic: ${currentTopic}`;
+            if(showHint) text+=`\nHint: ${currentHint}`;
+            if(!showTopic&&!showHint) text+="\nNo extra info. Blend in 😈";
         } else {
-            if(showTopic) text+=`Topic: ${currentTopic}\n`;
-            text+=`Word: ${currentWord}`;
+            if(showTopic) text+=`\nTopic: ${currentTopic}`;
+            text+=`\nWord: ${currentWord}`;
         }
         document.getElementById('roleTitle').textContent=currentPlayer;
         document.getElementById('roleText').textContent=text;
