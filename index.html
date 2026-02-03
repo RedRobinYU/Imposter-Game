@@ -5,25 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imposter Game</title>
 <style>
-body { background-color: #121212; color: #eee; font-family: Arial; text-align: center; margin:0; padding:0; }
-h1 { margin-top: 20px; font-size: 28px; }
-button { background-color: #1e1e1e; color: white; border: none; padding: 12px; margin: 6px; border-radius: 10px; font-size: 18px; width: 80%; cursor: pointer; }
+body {
+    background-color: #121212;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1 { margin-top: 20px; font-size: 28px; text-align: center; }
+button {
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    padding: 16px;
+    margin: 8px;
+    border-radius: 12px;
+    font-size: 20px;
+    width: 80%;
+    cursor: pointer;
+}
 button.green { background-color: #4CAF50; }
 button.gray { background-color: #2a2a2a; }
-input { padding: 10px; font-size: 18px; width: 70%; margin-bottom: 12px; }
-#players button { width: 90%; cursor: pointer; }
-.screen { display: none; }
-.screen.active { display: block; }
+input {
+    padding: 12px;
+    font-size: 20px;
+    width: 70%;
+    margin-bottom: 12px;
+}
+#players button { width: 90%; cursor: pointer; font-size: 20px; padding: 14px; }
+.screen { display: none; height: 80vh; }
+.screen.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
 .container { padding: 20px; }
-.toggle-btn { width: 80%; cursor: pointer; }
-#homeButton { position: fixed; top: 10px; right: 10px; width: auto; padding: 8px 12px; font-size: 14px; border-radius: 6px; background-color:#4CAF50; cursor: pointer; }
-#turnInfo { margin-top: 12px; font-size: 16px; color:#ccc; }
+.toggle-btn { width: 80%; cursor: pointer; font-size: 18px; padding: 12px; }
+#homeButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color:#4CAF50;
+    cursor: pointer;
+}
+#turnInfo { margin-top: 12px; font-size: 16px; color:#ccc; text-align:center; }
 
-#roleScreen { display:flex; flex-direction: column; justify-content: center; align-items: center; height: 80vh; }
-#roleTitle { font-size: 32px; margin-bottom: 20px; text-align: center; }
-#roleText { font-size: 26px; white-space: pre-wrap; text-align: center; margin-bottom: 30px; }
+#roleScreen, #revealScreen, #starterScreen {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 40px);
+}
+#roleTitle, #revealName { font-size: 36px; text-align:center; margin-bottom: 20px; }
+#roleText { font-size: 28px; white-space: pre-wrap; text-align: center; margin-bottom: 30px; }
 
-#starterScreen h2 { font-size: 28px; margin:10px 0; }
+#starterScreen h2 { font-size: 32px; margin: 10px 0; text-align:center; }
+#starterText { font-size: 36px; margin-top: 20px; color: #4CAF50; text-align:center; }
 </style>
 </head>
 <body>
@@ -51,8 +89,8 @@ input { padding: 10px; font-size: 18px; width: 70%; margin-bottom: 12px; }
 <!-- REVEAL SCREEN -->
 <div id="revealScreen" class="screen">
     <h2 id="revealName"></h2>
-    <p>Is this you? Make sure no one else is looking 👀</p>
-    <button id="showRoleBtn" class="green">YES – SHOW MY ROLE</button><br>
+    <p style="font-size:20px; text-align:center;">Is this you? Make sure no one else is looking 👀</p>
+    <button id="showRoleBtn" class="green">YES – SHOW MY ROLE</button>
     <button id="backToPlayersBtn" class="gray">NO – GO BACK</button>
 </div>
 
