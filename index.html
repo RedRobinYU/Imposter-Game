@@ -122,9 +122,8 @@ input {
 </div>
 
 <script>
-// ---------- TOPICS ----------
 // ------------------------
-// Topics
+// TOPICS
 // ------------------------
 const defaultTopics = {
   "Places": {
@@ -154,297 +153,59 @@ const defaultTopics = {
     "Parking Lot": "Spaces",
     "Temple": "Incense"
   },
-
-  "Animals": {
-    "Dog": "Leash",
-    "Cat": "Silence",
-    "Elephant": "Memory",
-    "Lion": "Territory",
-    "Penguin": "Waddle",
-    "Shark": "Movement",
-    "Horse": "Rhythm",
-    "Bird": "Height",
-    "Snake": "Stillness",
-    "Bear": "Weight",
-    "Rabbit": "Startle",
-    "Wolf": "Distance",
-    "Frog": "Jump",
-    "Fox": "Cunning",
-    "Dolphin": "Echo",
-    "Giraffe": "Neck",
-    "Kangaroo": "Pouch",
-    "Owl": "Night",
-    "Tiger": "Stripes",
-    "Elephant Seal": "Bulk",
-    "Crab": "Sideways",
-    "Ant": "March",
-    "Bee": "Buzz",
-    "Butterfly": "Flutter",
-    "Squirrel": "Scurry"
-  },
-
-  "Food": {
-    "Pizza": "Grease",
-    "Burger": "Hands",
-    "Sushi": "Precision",
-    "Tacos": "Messy",
-    "Pasta": "Twisting",
-    "Ice Cream": "Dripping",
-    "Steak": "Cut",
-    "Soup": "Steam",
-    "Salad": "Mixing",
-    "Sandwich": "Layers",
-    "Pancakes": "Stacking",
-    "Fries": "Salt",
-    "Bagel": "Spread",
-    "Dumplings": "Fold",
-    "Donut": "Sprinkles",
-    "Chocolate": "Sweet",
-    "Apple Pie": "Cinnamon",
-    "Rice": "Bowl",
-    "Popcorn": "Kernel",
-    "Hotdog": "Ketchup",
-    "Omelette": "Fold",
-    "Cheese": "Stretch",
-    "Sausage": "Link",
-    "Cereal": "Milk",
-    "Smoothie": "Blend"
-  },
-
-  "Objects": {
-    "Phone": "Vibration",
-    "Laptop": "Keys",
-    "Backpack": "Weight",
-    "Watch": "Glance",
-    "Headphones": "Isolation",
-    "Chair": "Stillness",
-    "Table": "Surface",
-    "Mirror": "Reflection",
-    "Door": "Pause",
-    "Wallet": "Routine",
-    "Keys": "Pocket",
-    "Lamp": "Glow",
-    "Book": "Pages",
-    "Pen": "Tip",
-    "Glasses": "Sight",
-    "Bag": "Strap",
-    "Camera": "Lens",
-    "Bottle": "Cap",
-    "Cup": "Sip",
-    "Phone Charger": "Cord",
-    "Umbrella": "Rain",
-    "Shoes": "Step",
-    "Hat": "Shade",
-    "Clock": "Tick",
-    "TV": "Screen"
-  },
-
-  "Jobs": {
-    "Teacher": "Repetition",
-    "Doctor": "Late nights",
-    "Engineer": "Diagrams",
-    "Chef": "Timing",
-    "Firefighter": "Heat",
-    "Programmer": "Debugging",
-    "Artist": "Blank space",
-    "Writer": "Drafts",
-    "Cashier": "Scanning",
-    "Mechanic": "Hands",
-    "Photographer": "Angles",
-    "Manager": "Meetings",
-    "Nurse": "Rounds",
-    "Actor": "Stage",
-    "Pilot": "Controls",
-    "Dancer": "Movement",
-    "Musician": "Notes",
-    "Farmer": "Harvest",
-    "Baker": "Oven",
-    "Soldier": "March",
-    "Scientist": "Lab",
-    "Barista": "Steam",
-    "Driver": "Wheel",
-    "Lawyer": "Arguments",
-    "Designer": "Sketch"
-  },
-
-  "Movies": {
-    "Titanic": "Cold",
-    "Inception": "Layers",
-    "Star Wars": "Legacy",
-    "Jurassic Park": "Containment",
-    "The Matrix": "Choice",
-    "Avengers": "Assembly",
-    "Jaws": "Anticipation",
-    "Rocky": "Persistence",
-    "Alien": "Isolation",
-    "Gladiator": "Crowd",
-    "Interstellar": "Distance",
-    "Up": "Loss",
-    "Frozen": "Ice",
-    "Coco": "Memory",
-    "Finding Nemo": "Journey",
-    "Incredibles": "Family",
-    "Shrek": "Swamp",
-    "Avatar": "Blue",
-    "Titan": "Fall",
-    "Hobbit": "Journey",
-    "Harry Potter": "Magic",
-    "Moana": "Ocean",
-    "Black Panther": "Kingdom",
-    "Soul": "Music",
-    "Zootopia": "Animals"
-  },
-
-  "Video Games": {
-    "Minecraft": "Blocks",
-    "Fortnite": "Circles",
-    "Among Us": "Silence",
-    "Zelda": "Puzzles",
-    "Call of Duty": "Reflexes",
-    "Pokemon": "Collection",
-    "Skyrim": "Wandering",
-    "Mario Kart": "Momentum",
-    "Dark Souls": "Patience",
-    "Valorant": "Positioning",
-    "Stardew Valley": "Routine",
-    "GTA": "Freedom",
-    "Animal Crossing": "Trading",
-    "Overwatch": "Teamwork",
-    "League of Legends": "Lanes",
-    "Tetris": "Falling",
-    "The Sims": "Choices",
-    "Fortnite Creative": "Build",
-    "Elden Ring": "Exploration",
-    "Hollow Knight": "Jumping",
-    "Candy Crush": "Matching",
-    "Among Trees": "Survival",
-    "Terraria": "Mining",
-    "Subnautica": "Diving",
-    "Dead Cells": "Rolling"
-  },
-
-  "Fruits": {
-    "Apple": "Crunch",
-    "Banana": "Peel",
-    "Orange": "Segments",
-    "Strawberry": "Seeds",
-    "Mango": "Juice",
-    "Grapes": "Clusters",
-    "Pineapple": "Texture",
-    "Peach": "Fuzz Pink",
-    "Cherry": "Pair",
-    "Watermelon": "Drips",
-    "Blueberry": "Scatter",
-    "Lemon": "Reaction",
-    "Kiwi": "Hairy",
-    "Plum": "Stone",
-    "Pear": "Soft",
-    "Apricot": "Fuzzy",
-    "Raspberry": "Tiny",
-    "Blackberry": "Bush",
-    "Cantaloupe": "Sweet",
-    "Papaya": "Tropical",
-    "Pomegranate": "Seeds",
-    "Fig": "Soft",
-    "Coconut": "Hard shell",
-    "Grapefruit": "Bitter",
-    "Dragonfruit": "Spiky"
-  },
   "Clash Royale Cards": {
-  "Hog Rider": "4",
-  "Mega Knight": "Arrival",
-  "Princess": "Legendary",
-  "Goblin Barrel": "Epic",
-  "Electro Wizard": "Two",
-  "Valkyrie": "Baddie",
-  "P.E.K.K.A": "Heavy",
-  "Mini P.E.K.K.A": "Quick",
-  "Skeleton Army": "Many",
-  "Balloon": "5",
-  "Lava Hound": "Large",
-  "Baby Dragon": "Flight",
-  "Inferno Tower": "Rare",
-  "Inferno Dragon": "4",
-  "Royal Giant": "Range",
-  "Knight": "Common",
-  "Ice Spirit": "Stun",
-  "Fireball": "Area Damage",
-  "Zap": "Instant",
-  "Log": "Legendary",
-  "Miner": "Baddie",
-  "Graveyard": "Many",
-  "X-Bow": "Epic",
-  "Mortar": "Common",
-  "Elite Barbarians": "Fucking gay restards"
-    },
-
-    "Random": {
-  "Burt": "M&M",
-  "Low Taper Fade": "Massive",
-  "Yellas": "Horable",
-  "Diff EQ": "Dropped Out",
-  "Joe": "Mama",
-  "Nihkil": "Smells",
-  "Caden": "Wise",
-  "Bagles On The Hudson": "Jordan",
-    },
-    "Slurs": {
-  "Nigga": "Kobe",
-  "Nigger": "Meaningless",
-  "Faggot": "David",
-  "Cracker": "White",
-  "Jews": "10% Off",
-  "Arabs": "7/11",
-  "Adolf": "Germans",
-  "Retard": "Caden",
-    },
-
-  "Activities": {
-    "Driving": "Focus",
-    "Cooking": "Timing",
-    "Reading": "Immersion",
-    "Gaming": "Engagement",
-    "Exercising": "Breath",
-    "Studying": "Repetition",
-    "Shopping": "Choices",
-    "Cleaning": "Order",
-    "Drawing": "Control",
-    "Writing": "Revising",
-    "Swimming": "Stroke",
-    "Hiking": "Trail",
-    "Fishing": "Patience",
-    "Dancing": "Beat",
-    "Singing": "Pitch",
-    "Painting": "Brush",
-    "Jogging": "Steps",
-    "Meditating": "Stillness",
-    "Photography": "Framing",
-    "Traveling": "Luggage",
-    "Yoga": "Stretch",
-    "Camping": "Fire",
-    "Cycling": "Pedal",
-    "Skateboarding": "Ramp",
-    "Surfing": "Wave"
-
+    "Hog Rider": "4",
+    "Mega Knight": "Arrival",
+    "Princess": "Legendary",
+    "Goblin Barrel": "Epic",
+    "Electro Wizard": "Two",
+    "Valkyrie": "Baddie",
+    "P.E.K.K.A": "Heavy",
+    "Mini P.E.K.K.A": "Quick",
+    "Skeleton Army": "Many",
+    "Balloon": "5",
+    "Lava Hound": "Large",
+    "Baby Dragon": "Flight",
+    "Inferno Tower": "Rare",
+    "Inferno Dragon": "4",
+    "Royal Giant": "Range",
+    "Knight": "Common",
+    "Ice Spirit": "Stun",
+    "Fireball": "Area",
+    "Zap": "Instant",
+    "Log": "Legendary",
+    "Miner": "Baddie",
+    "Graveyard": "Many",
+    "X-Bow": "Epic",
+    "Mortar": "Common",
+    "Elite Barbarians": "Fast"
   }
 };
 let topics = JSON.parse(localStorage.getItem("imposterTopics")) || defaultTopics;
 
-// ---------- GAME STATE ----------
+// ------------------------
+// GAME STATE
+// ------------------------
 let players = [];
 let roles = {};
 let viewed = [];
 let currentTopic="", currentWord="", currentHint="", starterPlayer="";
-let showTopic=true, showHint=true, currentPlayer="";
+let showTopic = JSON.parse(localStorage.getItem("showTopic")) ?? true;
+let showHint  = JSON.parse(localStorage.getItem("showHint")) ?? true;
+let currentPlayer="";
 
-// ---------- SCREEN ----------
+// ------------------------
+// SWITCH SCREEN
+// ------------------------
 function switchScreen(from,to){
     if(from) document.getElementById(from).classList.remove('active');
     if(to) document.getElementById(to).classList.add('active');
     updateTurnInfo();
 }
 
-// ---------- RENDER PLAYERS (WITH DELETE) ----------
+// ------------------------
+// RENDER PLAYERS (WITH DELETE)
+// ------------------------
 function renderPlayers(){
     const playersDiv = document.getElementById('players');
     playersDiv.innerHTML = "";
@@ -459,13 +220,13 @@ function renderPlayers(){
         const btn = document.createElement('button');
         btn.textContent = p + (viewed.includes(p) ? " ✔" : "");
         btn.style.flex="1";
-        btn.onclick=()=>showRoleForPlayer(p);
+        btn.onclick = ()=> showRoleForPlayer(p);
 
         const del = document.createElement('button');
-        del.textContent="❌";
+        del.textContent = "❌";
         del.style.width="50px";
         del.style.background="#aa3333";
-        del.onclick=(e)=>{
+        del.onclick = e=>{
             e.stopPropagation();
             players = players.filter(x=>x!==p);
             viewed = viewed.filter(x=>x!==p);
@@ -475,10 +236,13 @@ function renderPlayers(){
         row.append(btn,del);
         playersDiv.appendChild(row);
     });
+
     updateTurnInfo();
 }
 
-// ---------- ADD PLAYER ----------
+// ------------------------
+// ADD PLAYER
+// ------------------------
 function addPlayer(){
     const input=document.getElementById('playerName');
     const name=input.value.trim();
@@ -488,56 +252,61 @@ function addPlayer(){
         renderPlayers();
     }
 }
-addPlayerBtn.onclick=addPlayer;
-playerName.onkeypress=e=>{ if(e.key==="Enter") addPlayer(); };
+document.getElementById('addPlayerBtn').onclick=addPlayer;
+document.getElementById('playerName').onkeypress=e=>{if(e.key==="Enter") addPlayer();};
 
-// ---------- TOGGLES ----------
-topicToggle.onclick=()=>{
-    showTopic=!showTopic;
-    topicToggle.textContent=`Show Topic to Players: ${showTopic?"ON":"OFF"}`;
-    topicToggle.className=`toggle-btn ${showTopic?"green":"gray"}`;
-};
-hintToggle.onclick=()=>{
-    showHint=!showHint;
-    hintToggle.textContent=`Imposter sees Hint: ${showHint?"ON":"OFF"}`;
-    hintToggle.className=`toggle-btn ${showHint?"green":"gray"}`;
+// ------------------------
+// TOGGLES
+// ------------------------
+document.getElementById('topicToggle').onclick = ()=>{
+    showTopic = !showTopic;
+    localStorage.setItem("showTopic", JSON.stringify(showTopic));
+    document.getElementById('topicToggle').textContent = `Show Topic to Players: ${showTopic?"ON":"OFF"}`;
+    document.getElementById('topicToggle').className = `toggle-btn ${showTopic?"green":"gray"}`;
 };
 
-// ---------- START GAME ----------
-startGameBtn.onclick=()=>{
-    if(players.length<3){alert("Need at least 3 players");return;}
-    const entries=Object.entries(defaultTopics.Places);
-    [currentWord,currentHint]=entries[Math.floor(Math.random()*entries.length)];
-    currentTopic="Places";
+document.getElementById('hintToggle').onclick = ()=>{
+    showHint = !showHint;
+    localStorage.setItem("showHint", JSON.stringify(showHint));
+    document.getElementById('hintToggle').textContent = `Imposter sees Hint: ${showHint?"ON":"OFF"}`;
+    document.getElementById('hintToggle').className = `toggle-btn ${showHint?"green":"gray"}`;
+};
 
-    const imposter=players[Math.floor(Math.random()*players.length)];
-    players.forEach(p=>roles[p]=p===imposter?"IMPOSTER":"CREWMATE");
-    viewed=[];
+// ------------------------
+// START GAME
+// ------------------------
+document.getElementById('startGameBtn').onclick = ()=>{
+    if(players.length<3){ alert("Need at least 3 players"); return; }
+    
+    const topicKeys = Object.keys(topics);
+    currentTopic = topicKeys[Math.floor(Math.random()*topicKeys.length)];
+    const words = Object.entries(topics[currentTopic]);
+    [currentWord,currentHint] = words[Math.floor(Math.random()*words.length)];
+
+    const imposter = players[Math.floor(Math.random()*players.length)];
+    players.forEach(p=>roles[p] = p===imposter?"IMPOSTER":"CREWMATE");
+
+    viewed=[]; currentPlayer="";
     renderPlayers();
-    alert("Game ready! Tap your name.");
+    alert("Game ready! Pass the phone. Tap your name to see your role.");
 };
 
-// ---------- ROLE ----------
+// ------------------------
+// SHOW ROLE
+// ------------------------
 function showRoleForPlayer(name){
     currentPlayer = name;
     const role = roles[currentPlayer];
     let text = "";
 
-    if(role === "IMPOSTER"){
+    if(role==="IMPOSTER"){
         text = "YOU ARE THE IMPOSTER";
-
         if(showTopic) text += `\n\nTopic: ${currentTopic}`;
         if(showHint) text += `\nHint: ${currentHint}`;
         if(!showTopic && !showHint) text += "\n\nBlend in 😈";
-
     } else {
         text = "YOU ARE A CREWMATE";
-
-        if(showTopic === True){
-            text += `\n\nTopic: ${currentTopic}`;
-        }
-
-        // ✅ ALWAYS show the word to crewmates
+        if(showTopic) text += `\n\nTopic: ${currentTopic}`;
         text += `\nWord: ${currentWord}`;
     }
 
@@ -546,24 +315,30 @@ function showRoleForPlayer(name){
     document.getElementById('roleOverlay').style.display = 'flex';
 }
 
-
-doneRoleBtn.onclick=()=>{
+// ------------------------
+// DONE ROLE
+// ------------------------
+document.getElementById('doneRoleBtn').onclick = ()=>{
     viewed.push(currentPlayer);
-    roleOverlay.style.display="none";
+    document.getElementById('roleOverlay').style.display="none";
     renderPlayers();
     if(viewed.length===players.length){
-        starterText.textContent=`${players[Math.floor(Math.random()*players.length)]} GOES FIRST 🔥`;
+        document.getElementById('starterText').textContent = `${players[Math.floor(Math.random()*players.length)]} GOES FIRST 🔥`;
         switchScreen('setup','starterScreen');
     }
 };
 
-// ---------- HOME ----------
-homeButton.onclick=()=>switchScreen(null,'setup');
+// ------------------------
+// HOME
+// ------------------------
+document.getElementById('homeButton').onclick = ()=> switchScreen(null,'setup');
 
+// ------------------------
+// TURN INFO
+// ------------------------
 function updateTurnInfo(){
-    turnInfo.textContent=`Players done: ${viewed.length}/${players.length}`;
+    document.getElementById('turnInfo').textContent=`Players done: ${viewed.length}/${players.length}`;
 }
 </script>
 </body>
 </html>
-
