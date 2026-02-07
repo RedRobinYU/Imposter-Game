@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imposter Game</title>
+<style>
+body {
+    background-color: #121212;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1 { text-align: center; margin-top: 20px; font-size: 28px; }
+
+button {
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    padding: 14px;
+    margin: 8px;
+    border-radius: 12px;
+    font-size: 20px;
+    width: 80%;
+    cursor: pointer;
+}
+button.green { background-color: #4CAF50; }
+button.gray { background-color: #2a2a2a; }
+
+input {
+    padding: 12px;
+    font-size: 18px;
+    width: 70%;
+    margin-bottom: 12px;
+}
+
+.screen { display: none; }
+.screen.active { display: flex; flex-direction: column; align-items: center; }
+
+.container { padding: 20px; text-align:center; }
+
+.toggle-btn { width: 80%; cursor: pointer; font-size: 18px; padding: 12px; margin-top: 8px; }
+
+/* HOME BUTTON */
+#homeButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color:#4CAF50;
+    width: auto;
+    margin: 0;
+}
+
+/* ROLE OVERLAY */
+#roleOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#roleCard {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+}
+
+#roleCard h2 { font-size: 50px; }
+#roleCard pre { font-size: 32px; white-space: pre-wrap; }
+
+#starterScreen h2 { font-size:32px; }
+#starterText { font-size:36px; color:#4CAF50; }
+
+#turnInfo { margin-top: 12px; font-size: 16px; color:#ccc; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Imposter Game</h1>
+<button id="homeButton">🏠 Home</button>
+<div id="turnInfo"></div>
+
+<!-- SETUP -->
+<div id="setup" class="screen active">
+    <input type="text" id="playerName" placeholder="Player name">
+    <button id="addPlayerBtn">Add Player</button>
+    <div id="players"></div>
+    <button id="startGameBtn" class="green">START GAME</button>
+
+    <div style="margin-top:20px;">
+        <button id="topicToggle" class="toggle-btn green">Show Topic to Players: ON</button><br>
+        <button id="hintToggle" class="toggle-btn green">Imposter sees Hint: ON</button>
+    </div>
+</div>
+
+<!-- STARTER -->
+<div id="starterScreen" class="screen">
+    <h2>All players have seen their roles</h2>
+    <h2 id="starterText"></h2>
+</div>
+
+<!-- ROLE -->
+<div id="roleOverlay">
+    <div id="roleCard">
+        <h2 id="roleTitle"></h2>
+        <pre id="roleText"></pre>
+        <button id="doneRoleBtn" class="green">DONE (PASS PHONE)</button>
+    </div>
+</div>
+
+</div>
+
+<script>
+// ---------- TOPICS ----------
+const defaultTopics = {
+  "Places": {
+    "School":"Books","Airport":"Waiting","Hospital":"Bright lights",
+    "Beach":"Bare feet","Mall":"Crowds","Gym":"Sweat","Library":"Whispers",
+    "Office":"Schedules","Restaurant":"Menus","Park":"Benches"
+  }
+};
+let topics = defaultTopics;
+
+// ---------- GAME STATE ----------
+let players = [];
+let roles = {};
+let viewed = [];
+let currentTopic="", currentWord="", currentHint="", starterPlayer="";
+let showTopic=true, showHint=true, currentPlayer="";
+
+// ---------- SCREEN ----------
+function switchScreen(from,to){
+    if(from) document.getElementById(from).classList.remove('active');
+    if(to) document.getElementById(to).classList.add('active');
+    updateTurnInfo();
+}
+
+// ---------- RENDER PLAYERS (WITH DELETE) ----------
+function renderPlayers(){
+    const playersDiv = document.getElementById('players');
+    playersDiv.innerHTML = "";
+
+    players.forEach(p=>{
+        const row = document.createElement('div');
+        row.style.display="flex";
+        row.style.alignItems="center";
+        row.style.width="90%";
+        row.style.margin="6px auto";
+
+        const btn = document.createElement('button');
+        btn.textContent = p + (viewed.includes(p) ? " ✔" : "");
+        btn.style.flex="1";
+        btn.onclick=()=>showRoleForPlayer(p);
+
+        const del = document.createElement('button');
+        del.textContent="❌";
+        del.style.width="50px";
+        del.style.background="#aa3333";
+        del.onclick=(e)=>{
+            e.stopPropagation();
+            players = players.filter(x=>x!==p);
+            viewed = viewed.filter(x=>x!==p);
+            renderPlayers();
+        };
+
+        row.append(btn,del);
+        playersDiv.appendChild(row);
+    });
+    updateTurnInfo();
+}
+
+// ---------- ADD PLAYER ----------
+function addPlayer(){
+    const input=document.getElementById('playerName');
+    const name=input.value.trim();
+    if(name && !players.includes(name)){
+        players.push(name);
+        input.value="";
+        renderPlayers();
+    }
+}
+addPlayerBtn.onclick=addPlayer;
+playerName.onkeypress=e=>{ if(e.key==="Enter") addPlayer(); };
+
+// ---------- TOGGLES ----------
+topicToggle.onclick=()=>{
+    showTopic=!showTopic;
+    topicToggle.textContent=`Show Topic to Players: ${showTopic?"ON":"OFF"}`;
+    topicToggle.className=`toggle-btn ${showTopic?"green":"gray"}`;
+};
+hintToggle.onclick=()=>{
+    showHint=!showHint;
+    hintToggle.textContent=`Imposter sees Hint: ${showHint?"ON":"OFF"}`;
+    hintToggle.className=`toggle-btn ${showHint?"green":"gray"}`;
+};
+
+// ---------- START GAME ----------
+startGameBtn.onclick=()=>{
+    if(players.length<3){alert("Need at least 3 players");return;}
+    const entries=Object.entries(defaultTopics.Places);
+    [currentWord,currentHint]=entries[Math.floor(Math.random()*entries.length)];
+    currentTopic="Places";
+
+    const imposter=players[Math.floor(Math.random()*players.length)];
+    players.forEach(p=>roles[p]=p===imposter?"IMPOSTER":"CREWMATE");
+    viewed=[];
+    renderPlayers();
+    alert("Game ready! Tap your name.");
+};
+
+// ---------- ROLE ----------
+function showRoleForPlayer(name){
+    currentPlayer=name;
+    let text="";
+    if(roles[name]==="IMPOSTER"){
+        text="YOU ARE THE IMPOSTER";
+        if(showTopic) text+=`\n\nTopic: ${currentTopic}`;
+        if(showHint) text+=`\nHint: ${currentHint}`;
+    } else {
+        text=`YOU ARE A CREWMATE\n\nTopic: ${currentTopic}\nWord: ${currentWord}`;
+    }
+    roleTitle.textContent=name;
+    roleText.textContent=text;
+    roleOverlay.style.display="flex";
+}
+
+doneRoleBtn.onclick=()=>{
+    viewed.push(currentPlayer);
+    roleOverlay.style.display="none";
+    renderPlayers();
+    if(viewed.length===players.length){
+        starterText.textContent=`${players[Math.floor(Math.random()*players.length)]} GOES FIRST 🔥`;
+        switchScreen('setup','starterScreen');
+    }
+};
+
+// ---------- HOME ----------
+homeButton.onclick=()=>switchScreen(null,'setup');
+
+function updateTurnInfo(){
+    turnInfo.textContent=`Players done: ${viewed.length}/${players.length}`;
+}
+</script>
+</body>
+</html>
