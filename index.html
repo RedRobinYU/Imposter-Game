@@ -126,14 +126,192 @@ input, select {
 // TOPICS
 // ------------------------
 const defaultTopics = {
-  "Places": {"School":"Books","Airport":"Waiting","Hospital":"Bright lights","Beach":"Bare feet","Mall":"Crowds","Gym":"Sweat","Library":"Whispers","Office":"Schedules","Restaurant":"Menus","Park":"Benches","Theater":"Darkness","Stadium":"Echoes"},
-  "Animals": {"Dog":"Leash","Cat":"Silence","Elephant":"Memory","Lion":"Territory","Penguin":"Waddle","Shark":"Movement","Horse":"Rhythm","Bird":"Height","Snake":"Stillness","Crab":"Sideways","Ant":"March","Bee":"Buzz","Butterfly":"Flutter","Squirrel":"Scurry"},
-  "Food": {"Pizza":"Grease","Burger":"Hands","Sushi":"Precision","Tacos":"Messy","Pasta":"Twisting","Ice Cream":"Dripping","Steak":"Cut","Soup":"Steam","Sausage":"Link","Cereal":"Milk","Smoothie":"Blend"},
-  "Objects": {"Phone":"Vibration","Laptop":"Keys","Backpack":"Weight","Watch":"Glance","Headphones":"Isolation","Bottle":"Cap","Cup":"Sip","Phone Charger":"Cord","Umbrella":"Rain","Shoes":"Step","Hat":"Shade","Clock":"Tick","TV":"Screen"},
-  "Jobs": {"Teacher":"Repetition","Doctor":"Late nights","Engineer":"Diagrams","Chef":"Timing","Firefighter":"Heat","Programmer":"Debugging","Artist":"Blank space","Farmer":"Harvest","Baker":"Oven","Soldier":"March","Scientist":"Lab","Barista":"Steam","Driver":"Wheel","Lawyer":"Arguments","Designer":"Sketch"},
-  "Movies": {"Titanic":"Cold","Inception":"Layers","Star Wars":"Legacy","Jurassic Park":"Containment","Coco":"Memory","Finding Nemo":"Journey","Incredibles":"Family","Shrek":"Swamp","Avatar":"Blue","Titan":"Fall","Hobbit":"Journey","Harry Potter":"Magic","Moana":"Ocean","Black Panther":"Kingdom","Soul":"Music","Zootopia":"Animals"},
-  "Video Games": {"Minecraft":"Blocks","Fortnite":"Circles","Among Us":"Silence","Zelda":"Puzzles","Call of Duty":"Reflexes","Pokemon":"Collection","Skyrim":"Wandering","Mario Kart":"Momentum","Dark Souls":"Patience","Candy Crush":"Matching","Among Trees":"Survival","Terraria":"Mining","Subnautica":"Diving","Dead Cells":"Rolling"},
-  "Fruits": {"Apple":"Crunch","Banana":"Peel","Orange":"Segments","Strawberry":"Seeds","Mango":"Juice","Grapes":"Clusters","Fig":"Soft","Coconut":"Hard shell","Grapefruit":"Bitter","Dragonfruit":"Spiky"}
+  "Places": {
+    "School": "Books",
+    "Airport": "Waiting",
+    "Hospital": "Bright lights",
+    "Beach": "Bare feet",
+    "Mall": "Crowds",
+    "Gym": "Sweat",
+    "Library": "Whispers",
+    "Office": "Schedules",
+    "Restaurant": "Menus",
+    "Park": "Benches",
+    "Theater": "Darkness",
+    "Stadium": "Echoes"
+  },
+
+  "Animals": {
+    "Dog": "Leash",
+    "Cat": "Silence",
+    "Elephant": "Memory",
+    "Lion": "Territory",
+    "Penguin": "Waddle",
+    "Shark": "Movement",
+    "Horse": "Rhythm",
+    "Bird": "Height",
+    "Snake": "Stillness",
+    "Crab": "Sideways",
+    "Ant": "March",
+    "Bee": "Buzz",
+    "Butterfly": "Flutter",
+    "Squirrel": "Scurry"
+  },
+
+  "Food": {
+    "Pizza": "Grease",
+    "Burger": "Hands",
+    "Sushi": "Precision",
+    "Tacos": "Messy",
+    "Pasta": "Twisting",
+    "Ice Cream": "Dripping",
+    "Steak": "Cut",
+    "Soup": "Steam",
+    "Sausage": "Link",
+    "Cereal": "Milk",
+    "Smoothie": "Blend"
+  },
+
+  "Objects": {
+    "Phone": "Vibration",
+    "Laptop": "Keys",
+    "Backpack": "Weight",
+    "Watch": "Glance",
+    "Headphones": "Isolation",
+    "Bottle": "Cap",
+    "Cup": "Sip",
+    "Phone Charger": "Cord",
+    "Umbrella": "Rain",
+    "Shoes": "Step",
+    "Hat": "Shade",
+    "Clock": "Tick",
+    "TV": "Screen"
+  },
+
+  "Jobs": {
+    "Teacher": "Repetition",
+    "Doctor": "Late nights",
+    "Engineer": "Diagrams",
+    "Chef": "Timing",
+    "Firefighter": "Heat",
+    "Programmer": "Debugging",
+    "Artist": "Blank space",
+    "Farmer": "Harvest",
+    "Baker": "Oven",
+    "Soldier": "March",
+    "Scientist": "Lab",
+    "Barista": "Steam",
+    "Driver": "Wheel",
+    "Lawyer": "Arguments",
+    "Designer": "Sketch"
+  },
+
+  "Movies": {
+    "Titanic": "Cold",
+    "Inception": "Layers",
+    "Star Wars": "Legacy",
+    "Jurassic Park": "Containment",
+    "Coco": "Memory",
+    "Finding Nemo": "Journey",
+    "Incredibles": "Family",
+    "Shrek": "Swamp",
+    "Avatar": "Blue",
+    "Titan": "Fall",
+    "Hobbit": "Journey",
+    "Harry Potter": "Magic",
+    "Moana": "Ocean",
+    "Black Panther": "Kingdom",
+    "Soul": "Music",
+    "Zootopia": "Animals"
+  },
+
+  "Video Games": {
+    "Minecraft": "Blocks",
+    "Fortnite": "Circles",
+    "Among Us": "Silence",
+    "Zelda": "Puzzles",
+    "Call of Duty": "Reflexes",
+    "Pokemon": "Collection",
+    "Skyrim": "Wandering",
+    "Mario Kart": "Momentum",
+    "Dark Souls": "Patience",
+    "Candy Crush": "Matching",
+    "Among Trees": "Survival",
+    "Terraria": "Mining",
+    "Subnautica": "Diving",
+    "Dead Cells": "Rolling"
+  },
+
+  "Fruits": {
+    "Apple": "Crunch",
+    "Banana": "Peel",
+    "Orange": "Segments",
+    "Strawberry": "Seeds",
+    "Mango": "Juice",
+    "Grapes": "Clusters",
+    "Fig": "Soft",
+    "Coconut": "Hard shell",
+    "Grapefruit": "Bitter",
+    "Dragonfruit": "Spiky"
+  },
+  "Clash Royale Cards": {
+  "Hog Rider": "4",
+  "Mega Knight": "Arrival",
+  "Princess": "Legendary",
+  "Goblin Barrel": "Epic",
+  "Electro Wizard": "Two",
+  "Valkyrie": "Baddie",
+  "P.E.K.K.A": "Heavy",
+  "Mini P.E.K.K.A": "Quick",
+  "Skeleton Army": "Many",
+  "Balloon": "5",
+  "Lava Hound": "Large",
+  "Baby Dragon": "Flight",
+  "Inferno Tower": "Rare",
+  "Inferno Dragon": "4",
+  "Royal Giant": "Range",
+  "Knight": "Common",
+  "Ice Spirit": "Stun",
+  "Fireball": "Area Damage",
+  "Zap": "Instant",
+  "Log": "Legendary",
+  "Miner": "Baddie",
+  "Graveyard": "Many",
+  "X-Bow": "Epic",
+  "Mortar": "Common",
+  "Elite Barbarians": "Fucking gay restards"
+    },
+
+    "Random": {
+  "Burt": "M&M",
+  "Low Taper Fade": "Massive",
+  "Yellas": "Horable",
+  "Diff EQ": "Dropped Out",
+  "Joe": "Mama",
+  "Nihkil": "Smells",
+  "Caden": "Wise",
+  "Bagles On The Hudson": "Jordan",
+    },
+
+  "Activities": {
+    "Driving": "Focus",
+    "Cooking": "Timing",
+    "Reading": "Immersion",
+    "Gaming": "Engagement",
+    "Exercising": "Breath",
+    "Studying": "Repetition",
+    "Shopping": "Choices",
+    "Jogging": "Steps",
+    "Meditating": "Stillness",
+    "Photography": "Framing",
+    "Traveling": "Luggage",
+    "Yoga": "Stretch",
+    "Camping": "Fire",
+    "Cycling": "Pedal",
+    "Skateboarding": "Ramp",
+    "Surfing": "Wave"
+
+  }
 };
 let topics = JSON.parse(localStorage.getItem("imposterTopics")) || defaultTopics;
 
@@ -316,3 +494,4 @@ homeButton.onclick=()=>{
 </script>
 </body>
 </html>
+
